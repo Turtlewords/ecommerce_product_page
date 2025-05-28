@@ -88,11 +88,78 @@ header {
     font-weight: 500;
 }
 
+#content {
+    padding: 1.25rem 1.25rem 0 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 5rem;
+}
+
+#price {
+    display: flex;
+    justify-content: space-between;
+}
+
+#current-box {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+#quantity-box {
+    display: flex;
+    padding: 1rem;
+    font-size: 1.125rem;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--grey-50);
+    border-radius: 12px;
+}
 
 
+#add-to-cart {
+    padding: 1rem;
+    background-color: var(--orange-500);
+    border-radius: 12px;
+    border: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-family: inherit;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
 
+/* Typography */ 
 
+#current-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
 
+#discount {
+    background-color: #000000;
+    color: white;
+    padding: .5rem;
+    border-radius: 8px;
+}
+
+#past-price {
+    text-decoration: line-through;
+    display: flex;
+    align-items: center;
+    color: var(--grey-500);
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+#quantity {
+    margin: 0;
+    font-weight: 600;
+}
 
 /* Images */
 
@@ -106,6 +173,10 @@ img {
 
 #hero {
     position: relative;
+}
+
+#picture-frame {
+    transition: 0.5s;
 }
 
 #prev-img {

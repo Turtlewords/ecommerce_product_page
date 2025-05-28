@@ -26,7 +26,7 @@ function loadNextImage() {
     } else {
         index = 0;
     }
-    console.log("Index: " + index);
+    
     
     pictureFrame.innerHTML = `
     <img src=${pictureArr[index]} alt="sneakers">`
