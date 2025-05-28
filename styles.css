@@ -1,0 +1,104 @@
+:root {
+
+    /* Spacing */
+
+    --space-0: 0px;
+    --space-100: 8px;
+    --space-200: 16px;
+    --space-300: 24px;
+    --space-400: 32px;
+    --space-500: 40px;
+    --space-600: 48px;
+    --space-700: 56px;
+    --space-900: 72px;
+    --space-1000: 80px;
+    --space-1200: 96px;
+    --space-1300: 104px;
+    --space-1600: 128px;
+
+
+    /* Colors */
+
+    --white: #FFFFFF;
+    --black: #000000;
+    --grey-50: #F6F8FD;
+    --grey-100: #E4E9F2;
+    --grey-300: #C3CAD9;
+    --grey-500: #69707D;
+    --grey-950: #1D2026;
+    --orange-300: #FFAB6A;
+    --orange-500: #FF7E1B;
+}
+
+*,*::before, *::after {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "KumbhSans";
+    src: url("font/KumbhSans-VariableFont_YOPQ\,wght.ttf");
+}
+
+body {
+    margin: 0;
+    font-family: "KumbhSans", "Helvetica", sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+#header-left {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+}
+
+#header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#sidenav {
+    background-color: rgb(255,255,255,0.75);
+    backdrop-filter: blur(0.5rem);
+    height: 100%;
+    width: 0;
+    overflow: hidden;
+    
+}
+
+#sidenav ul {
+    margin: 0;
+    padding: 0;
+}
+
+#sidenav li{
+    list-style-type: none;
+}
+
+#sidenav a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
+
+
+
+
+
+
+/* Images */
+
+img {
+    max-width: 100%;
+}
+
+#avatar {
+    width: 40px;
+}
