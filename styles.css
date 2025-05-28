@@ -64,6 +64,7 @@ header {
 }
 
 #sidenav {
+    position: fixed;
     background-color: rgb(255,255,255,0.75);
     backdrop-filter: blur(0.5rem);
     height: 100%;
@@ -101,4 +102,32 @@ img {
 
 #avatar {
     width: 40px;
+}
+
+#hero {
+    position: relative;
+}
+
+#prev-img {
+    position: absolute;
+    left: 1rem;
+    top: 40%;
+    z-index: 1;
+}
+
+#next-img {
+    position: absolute;
+    right: 1rem;
+    top: 40%;
+    z-index: 1;
+}
+
+#prev-img, #next-img {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 100%;
+}
+
+#prev-img:hover, #next-img:hover {
+    cursor: pointer;
 }
