@@ -16,7 +16,7 @@ prevImgBtn.addEventListener("click", loadPreviousImage)
 
 function loadFirstPicture() {
     pictureFrame.innerHTML += `
-    <img src=${pictureArr[index]} alt="sneakers">`
+    <img class="product" src=${pictureArr[index]} alt="sneakers">`
 }
 
 function loadNextImage() {
@@ -29,7 +29,7 @@ function loadNextImage() {
     
     
     pictureFrame.innerHTML = `
-    <img src=${pictureArr[index]} alt="sneakers">`
+    <img class="product" src=${pictureArr[index]} alt="sneakers">`
 }
 
 function loadPreviousImage() {
@@ -40,6 +40,6 @@ function loadPreviousImage() {
     }
 
     pictureFrame.innerHTML = `
-    <img src=${pictureArr[index]} alt="sneakers">`
+    <img class="product" src=${pictureArr[index]} alt="sneakers">`
 }
 
