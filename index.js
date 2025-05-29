@@ -1,20 +1,49 @@
+// Elements
+
 const pictureFrame = document.querySelector("#picture-frame");
 const nextImgBtn = document.querySelector("#next-img");
 const prevImgBtn = document.querySelector("#prev-img");
 const desktopImg = document.querySelector("#desktop-img");
+const cartPlus = document.querySelector("#cart-plus");
+const cartMinus = document.querySelector("#cart-minus");
 
+const thumbnails = document.querySelectorAll(".thumbnail");
+
+
+// Variables
 
 let index = 0;
-
-
 const pictureArr = ['images/image-product-1.jpg', 'images/image-product-2.jpg', 'images/image-product-3.jpg', 'images/image-product-4.jpg'];
 const thumbArr = ['images/image-product-1-thumbnail.jpg', 'images/image-product-2-thumbnail.jpg', 'images/image-product-3-thumbnail.jpg', 'images/image-product-4-thumbnail.jpg'];
+
+// Function Calls
 
 loadFirstPicture();
 loadDesktopHero();
 
+// Event Listeners
+
+thumbnails.forEach((thumb) => {
+    thumb.addEventListener("click", changeDesktopMainImage)
+})
+
+thumbnails.forEach((thumb) => {
+    thumb.addEventListener("click", () => {
+        for (let x of thumbnails) {
+            x.style.outline = "none";
+            x.style.opacity = "";
+        }
+        thumb.style.outline = "3px solid #FF7E1B"
+        thumb.style.opacity = "0.7";
+    })
+})
+
+
 nextImgBtn.addEventListener("click", loadNextImage)
 prevImgBtn.addEventListener("click", loadPreviousImage)
+
+
+// Functions
 
 function loadFirstPicture() {
     pictureFrame.innerHTML += `
@@ -46,6 +75,14 @@ function loadPreviousImage() {
 }
 
 function loadDesktopHero() {
-    desktopImg.innerHTML += `
-    <img class="product" src=${pictureArr[index]} alt="sneakers">`
+    desktopImg.innerHTML = `
+    <img class="desktop-main" src=${pictureArr[index]} alt="sneakers">`
 }
+
+
+function changeDesktopMainImage(e) {
+    desktopImg.innerHTML = 
+    `<img class="desktop-main" src='${pictureArr[e.target.dataset.val - 1]}' alt="sneakers">`
+}
+
+
