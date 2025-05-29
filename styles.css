@@ -88,6 +88,10 @@ header {
     font-weight: 500;
 }
 
+#desktop-hero {
+    display: none;
+}
+
 #content {
     padding: 1.25rem 1.25rem 0 1.25rem;
     display: flex;
@@ -170,6 +174,13 @@ header {
     font-weight: 600;
 }
 
+#thumbnail-box {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+
+}
+
 /* Images */
 
 img {
@@ -208,6 +219,10 @@ img {
 
 #prev-img:hover, #next-img:hover {
     cursor: pointer;
+}
+
+.thumbnail {
+    border-radius: 12px;
 }
 
 
@@ -251,4 +266,30 @@ img {
     grid-template-columns: 1fr 1fr;
     
 }
+}
+
+@media (min-width: 1250px) {
+
+
+    #hero {
+        display: none;
+    }
+
+    #desktop-hero {
+        display: flex;
+    }
+
+    #picture-frame {
+        border-radius: 16px;
+        height: initial;
+        overflow: initial;
+        position: relative;
+        
+    }
+
+    .product {
+        position: static;
+        bottom: 0;
+        
+    }
 }

@@ -1,6 +1,7 @@
 const pictureFrame = document.querySelector("#picture-frame");
 const nextImgBtn = document.querySelector("#next-img");
 const prevImgBtn = document.querySelector("#prev-img");
+const desktopImg = document.querySelector("#desktop-img");
 
 
 let index = 0;
@@ -10,6 +11,7 @@ const pictureArr = ['images/image-product-1.jpg', 'images/image-product-2.jpg', 
 const thumbArr = ['images/image-product-1-thumbnail.jpg', 'images/image-product-2-thumbnail.jpg', 'images/image-product-3-thumbnail.jpg', 'images/image-product-4-thumbnail.jpg'];
 
 loadFirstPicture();
+loadDesktopHero();
 
 nextImgBtn.addEventListener("click", loadNextImage)
 prevImgBtn.addEventListener("click", loadPreviousImage)
@@ -43,3 +45,7 @@ function loadPreviousImage() {
     <img class="product" src=${pictureArr[index]} alt="sneakers">`
 }
 
+function loadDesktopHero() {
+    desktopImg.innerHTML += `
+    <img class="product" src=${pictureArr[index]} alt="sneakers">`
+}
