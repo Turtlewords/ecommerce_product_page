@@ -130,14 +130,20 @@ function addToCart() {
     if (quantity == 0) {
         return;
     }
+    
+    cartQuantity += quantity;
+    quantity = 0;
 
-    if (cartQuantity == 0) {
-        cartQuantity = quantity;
-    } else {
-        cartQuantity += quantity;
-    }
-
+    quantityEl.textContent = quantity;
     cartQuantityEl.textContent = cartQuantity;
+}
+
+
+
+function showCart() {
+    if (cartQuantity == 0) {
+
+    }
 }
 
 

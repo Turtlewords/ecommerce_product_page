@@ -176,6 +176,23 @@ header {
     cursor: pointer;
 }
 
+#cart {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    width: 90%;
+    max-width: 400px;
+    background-color: var(--white);
+    border-radius: 16px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+
+#cart-head {
+    border-bottom: 1px solid  var(--grey-500);
+    padding: 1rem;
+}
+
 /* Typography */ 
 
 #current-price {
