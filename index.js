@@ -1,5 +1,7 @@
 // Elements
-
+const openMenu = document.querySelector("#open-menu");
+const closeMenu = document.querySelector("#close-menu");
+const sideNav = document.querySelector("#sidenav");
 const pictureFrame = document.querySelector("#picture-frame");
 const nextImgBtn = document.querySelector("#next-img");
 const prevImgBtn = document.querySelector("#prev-img");
@@ -22,6 +24,14 @@ loadFirstPicture();
 loadDesktopHero();
 
 // Event Listeners
+
+openMenu.addEventListener("click", () =>{
+    sideNav.classList.add("nav-active");
+})
+
+closeMenu.addEventListener("click", () => {
+    sideNav.classList.remove("nav-active");
+})
 
 thumbnails.forEach((thumb) => {
     thumb.addEventListener("click", changeDesktopMainImage)
