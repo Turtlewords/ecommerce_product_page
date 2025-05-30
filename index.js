@@ -11,15 +11,22 @@ const cartMinus = document.querySelector("#cart-minus");
 const quantityEl = document.querySelector("#quantity");
 const cartQuantityEl = document.querySelector("#cart-quantity");
 const addToCartBtn = document.querySelector("#add-to-cart");
+const cartBtn = document.querySelector("#cart-container");
+const cart = document.querySelector("#cart");
+let cartContent = document.querySelector("#cart-content");
 
 const thumbnails = document.querySelectorAll(".thumbnail");
 
 
 // Variables
 
+
+let showPrice = 125;
 let index = 0;
 let quantity = 0;
 let cartQuantity = 0;
+let total = 0;
+let thumbIndex = 0;
 
 const pictureArr = ['images/image-product-1.jpg', 'images/image-product-2.jpg', 'images/image-product-3.jpg', 'images/image-product-4.jpg'];
 const thumbArr = ['images/image-product-1-thumbnail.jpg', 'images/image-product-2-thumbnail.jpg', 'images/image-product-3-thumbnail.jpg', 'images/image-product-4-thumbnail.jpg'];
@@ -67,6 +74,8 @@ addToCartBtn.addEventListener("click", () => {
     addToCart();
 })
 
+cartBtn.addEventListener("click", showCart);
+
 // Functions
 
 function loadFirstPicture() {
@@ -105,6 +114,7 @@ function loadDesktopHero() {
 
 
 function changeDesktopMainImage(e) {
+    thumbIndex = e.target.dataset.val - 1;
     desktopImg.innerHTML = 
     `<img class="desktop-main" src='${pictureArr[e.target.dataset.val - 1]}' alt="sneakers">`
 }
@@ -141,9 +151,28 @@ function addToCart() {
 
 
 function showCart() {
-    if (cartQuantity == 0) {
-
+    if (cart.style.display == "block") {
+        cart.style.display = "none";
+    } else {
+        if (cartQuantity == 0) {
+        cart.style.display = "block";
+    } else {
+        cart.style.display = "block";
+        cartContent.innerHTML = `
+        <div class="cart-items">
+            <img class="cart-product-img" src="${thumbArr[thumbIndex]}" alt="thumbnail of shoes">
+            <div class="cart-info">
+                <span>Fall Limited Edition Sneakers</span>
+                <span>$125 x ${cartQuantity} <span id="total-cost">$${cartQuantity * 125}</span>
+            </div>
+            <img src="images/icon-delete.svg" alt="delete icon">
+        </div>
+        <button id="checkout-btn>Checkout</button>`
     }
+    }
+
+
+    
 }
 
 
