@@ -8,6 +8,9 @@ const prevImgBtn = document.querySelector("#prev-img");
 const desktopImg = document.querySelector("#desktop-img");
 const cartPlus = document.querySelector("#cart-plus");
 const cartMinus = document.querySelector("#cart-minus");
+const quantityEl = document.querySelector("#quantity");
+const cartQuantityEl = document.querySelector("#cart-quantity");
+const addToCartBtn = document.querySelector("#add-to-cart");
 
 const thumbnails = document.querySelectorAll(".thumbnail");
 
@@ -15,6 +18,9 @@ const thumbnails = document.querySelectorAll(".thumbnail");
 // Variables
 
 let index = 0;
+let quantity = 0;
+let cartQuantity = 0;
+
 const pictureArr = ['images/image-product-1.jpg', 'images/image-product-2.jpg', 'images/image-product-3.jpg', 'images/image-product-4.jpg'];
 const thumbArr = ['images/image-product-1-thumbnail.jpg', 'images/image-product-2-thumbnail.jpg', 'images/image-product-3-thumbnail.jpg', 'images/image-product-4-thumbnail.jpg'];
 
@@ -32,6 +38,10 @@ openMenu.addEventListener("click", () =>{
 closeMenu.addEventListener("click", () => {
     sideNav.classList.remove("nav-active");
 })
+
+
+cartMinus.addEventListener("click", subtractQuantity);
+cartPlus.addEventListener("click", addQuantity);
 
 thumbnails.forEach((thumb) => {
     thumb.addEventListener("click", changeDesktopMainImage)
@@ -52,6 +62,10 @@ thumbnails.forEach((thumb) => {
 nextImgBtn.addEventListener("click", loadNextImage)
 prevImgBtn.addEventListener("click", loadPreviousImage)
 
+
+addToCartBtn.addEventListener("click", () => {
+    addToCart();
+})
 
 // Functions
 
@@ -93,6 +107,37 @@ function loadDesktopHero() {
 function changeDesktopMainImage(e) {
     desktopImg.innerHTML = 
     `<img class="desktop-main" src='${pictureArr[e.target.dataset.val - 1]}' alt="sneakers">`
+}
+
+function addQuantity() {
+  quantity++;
+  quantityEl.textContent = quantity;
+}
+
+function subtractQuantity() {
+    if (quantity > 0) {
+        quantity--;
+        quantityEl.textContent = quantity;
+    } else {
+        return;
+    }
+}
+
+
+// Finish addToCart function
+
+function addToCart() {
+    if (quantity == 0) {
+        return;
+    }
+
+    if (cartQuantity == 0) {
+        cartQuantity = quantity;
+    } else {
+        cartQuantity += quantity;
+    }
+
+    cartQuantityEl.textContent = cartQuantity;
 }
 
 
