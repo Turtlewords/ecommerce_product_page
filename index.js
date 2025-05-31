@@ -37,6 +37,7 @@ let cartQuantity = 0;
 let total = 0;
 let thumbIndex = 0;
 let lightThumbIndex = 0;
+let lightboxShowing = false;
 
 const pictureArr = ['images/image-product-1.jpg', 'images/image-product-2.jpg', 'images/image-product-3.jpg', 'images/image-product-4.jpg'];
 const thumbArr = ['images/image-product-1-thumbnail.jpg', 'images/image-product-2-thumbnail.jpg', 'images/image-product-3-thumbnail.jpg', 'images/image-product-4-thumbnail.jpg'];
@@ -122,11 +123,13 @@ document.body.addEventListener("click", (e) => {
 
 
 desktopImg.addEventListener("click", () => {
-    lightBox.style.display = "block";
+    lightBox.style.display = "flex";
+    lightboxShowing = true;
 })
 
 closeLightBoxBtn.addEventListener("click", () => {
     lightBox.style.display = "none";
+    lightboxShowing = false;
 })
 
 
@@ -138,7 +141,6 @@ function loadFirstPicture() {
     <img class="product" src=${pictureArr[index]} alt="sneakers">`
 }
 
-// FIX CLASS DISCREPANCY BETWEEN LIGHTBOX AND MOBILE
 
 function loadNextImage(el) {
     
@@ -148,12 +150,9 @@ function loadNextImage(el) {
         index = 0;
     }
     
-    
-    
     el.innerHTML = `
-    <img class="${lightBox.style.display = "none" == true ? "product" : "lightbox-main"}" src=${pictureArr[index]} alt="sneakers">`
+    <img class="${lightboxShowing ? "lightbox-main" : "product"}" src=${pictureArr[index]} alt="sneakers">`
 }
-
 
 
 function loadPreviousImage(el) {
@@ -164,7 +163,7 @@ function loadPreviousImage(el) {
     }
 
     el.innerHTML = `
-    <img class="product" src=${pictureArr[index]} alt="sneakers">`
+    <img class="${lightboxShowing ? "lightbox-main" : "product"}" src=${pictureArr[index]} alt="sneakers">`
 }
 
 function loadDesktopHero() {
@@ -268,8 +267,5 @@ function deleteCartItems() {
     </div>`
 }
 
-function showLightBox() {
-
-}
 
 
