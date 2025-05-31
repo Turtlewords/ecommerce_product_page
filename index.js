@@ -18,8 +18,13 @@ const deleteBtn = document.querySelector("#delete-btn");
 const lightBox = document.querySelector("#lightbox");
 const closeLightBoxBtn = document.querySelector("#close-lightbox");
 const lightBoxImg = document.querySelector("#lightbox-img");
+const lightBoxMain = document.querySelector("#lightbox-main");
+const lightBoxMainContainer = document.querySelector("#lightbox-main-container");
+const prevImgLightBtn = document.querySelector("#prev-img-light");
+const nextImgLightBtn = document.querySelector("#next-img-light");
 
 const thumbnails = document.querySelectorAll(".thumbnail");
+const lightThumbnails = document.querySelectorAll(".light-thumbnail");
 
 
 // Variables
@@ -31,6 +36,7 @@ let quantity = 0;
 let cartQuantity = 0;
 let total = 0;
 let thumbIndex = 0;
+let lightThumbIndex = 0;
 
 const pictureArr = ['images/image-product-1.jpg', 'images/image-product-2.jpg', 'images/image-product-3.jpg', 'images/image-product-4.jpg'];
 const thumbArr = ['images/image-product-1-thumbnail.jpg', 'images/image-product-2-thumbnail.jpg', 'images/image-product-3-thumbnail.jpg', 'images/image-product-4-thumbnail.jpg'];
@@ -58,6 +64,10 @@ thumbnails.forEach((thumb) => {
     thumb.addEventListener("click", changeDesktopMainImage)
 })
 
+lightThumbnails.forEach((thumb) => {
+    thumb.addEventListener("click", changeLightboxMainImage)
+})
+
 thumbnails.forEach((thumb) => {
     thumb.addEventListener("click", () => {
         for (let x of thumbnails) {
@@ -69,6 +79,18 @@ thumbnails.forEach((thumb) => {
     })
 })
 
+lightThumbnails.forEach((thumb) => {
+    thumb.addEventListener("click", () => {
+        for (let x of lightThumbnails) {
+            x.style.outline = "none";
+            x.style.opacity = "";
+        }
+        thumb.style.outline = "3px solid #FF7E1B"
+        thumb.style.opacity = "0.7";
+    })
+})
+
+// Mobile Controls
 
 nextImgBtn.addEventListener("click", () => {
     loadNextImage(pictureFrame)
@@ -77,6 +99,14 @@ prevImgBtn.addEventListener("click", () => {
     loadPreviousImage(pictureFrame)
 });
 
+// Lightbox Controls
+
+nextImgLightBtn.addEventListener("click", () => {
+    loadNextImage(lightBoxMainContainer)
+});
+prevImgLightBtn.addEventListener("click", () => {
+    loadPreviousImage(lightBoxMainContainer)
+});
 
 addToCartBtn.addEventListener("click", () => {
     addToCart();
@@ -108,6 +138,8 @@ function loadFirstPicture() {
     <img class="product" src=${pictureArr[index]} alt="sneakers">`
 }
 
+// FIX CLASS DISCREPANCY BETWEEN LIGHTBOX AND MOBILE
+
 function loadNextImage(el) {
     
     if (index < pictureArr.length - 1) {
@@ -117,9 +149,12 @@ function loadNextImage(el) {
     }
     
     
+    
     el.innerHTML = `
-    <img class="product" src=${pictureArr[index]} alt="sneakers">`
+    <img class="${lightBox.style.display = "none" == true ? "product" : "lightbox-main"}" src=${pictureArr[index]} alt="sneakers">`
 }
+
+
 
 function loadPreviousImage(el) {
     if (index > 0) {
@@ -142,6 +177,12 @@ function changeDesktopMainImage(e) {
     thumbIndex = e.target.dataset.val - 1;
     desktopImg.innerHTML = 
     `<img class="desktop-main" src='${pictureArr[e.target.dataset.val - 1]}' alt="sneakers">`
+}
+
+function changeLightboxMainImage(e) {
+    lightThumbIndex = e.target.dataset.val - 1;
+    lightBoxMainContainer.innerHTML = 
+    `<img class="lightbox-main" src='${pictureArr[e.target.dataset.val - 1]}' alt="sneakers">`
 }
 
 function addQuantity() {
