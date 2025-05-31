@@ -14,6 +14,7 @@ const addToCartBtn = document.querySelector("#add-to-cart");
 const cartBtn = document.querySelector("#cart-container");
 const cart = document.querySelector("#cart");
 let cartContent = document.querySelector("#cart-content");
+const deleteBtn = document.querySelector("#delete-btn");
 
 const thumbnails = document.querySelectorAll(".thumbnail");
 
@@ -75,6 +76,12 @@ addToCartBtn.addEventListener("click", () => {
 })
 
 cartBtn.addEventListener("click", showCart);
+
+document.body.addEventListener("click", (e) => {
+    if (e.target.id == "delete-btn") {
+        deleteCartItems();
+    }
+})
 
 // Functions
 
@@ -146,6 +153,10 @@ function addToCart() {
 
     quantityEl.textContent = quantity;
     cartQuantityEl.textContent = cartQuantity;
+
+    if (cart.style.display != "none") {
+        updateCart()
+    }
 }
 
 
@@ -159,20 +170,47 @@ function showCart() {
     } else {
         cart.style.display = "block";
         cartContent.innerHTML = `
+        <div class="non-empty-cart">
+            <div class="cart-items">
+                <img class="cart-product-img" src="${thumbArr[thumbIndex]}" alt="thumbnail of shoes">
+                <div class="cart-info">
+                    <span>Fall Limited Edition Sneakers</span>
+                    <span>$125 x ${cartQuantity} <span id="total-cost">$${cartQuantity * 125}</span>
+                </div>
+                <img id="delete-btn" src="images/icon-delete.svg" alt="delete icon">
+            </div>
+            <button id="checkout-btn">Checkout</button>
+        </div>`
+    }
+    }
+
+}
+
+function updateCart() {
+    cartContent.innerHTML = `
+    <div class="non-empty-cart">
         <div class="cart-items">
             <img class="cart-product-img" src="${thumbArr[thumbIndex]}" alt="thumbnail of shoes">
             <div class="cart-info">
                 <span>Fall Limited Edition Sneakers</span>
                 <span>$125 x ${cartQuantity} <span id="total-cost">$${cartQuantity * 125}</span>
             </div>
-            <img src="images/icon-delete.svg" alt="delete icon">
+            <img id="delete-btn" src="images/icon-delete.svg" alt="delete icon">
         </div>
-        <button id="checkout-btn>Checkout</button>`
-    }
-    }
+        <button id="checkout-btn">Checkout</button>
+    </div>`
+}
 
+function deleteCartItems() {
 
-    
+    cartQuantity = 0;
+    quantity = 0;
+    quantityEl.textContent = 0;
+    cartQuantityEl.textContent = "";
+    cartContent.innerHTML = `
+    <div class="empty-cart">
+        <p>Your cart is empty</p>
+    </div>`
 }
 
 

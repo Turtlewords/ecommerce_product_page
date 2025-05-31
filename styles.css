@@ -197,7 +197,6 @@ header {
 }
 
 #cart-content {
-    display: flex;
     height: 10rem;
 }
 
@@ -210,6 +209,13 @@ header {
 .cart-info {
     display: flex;
     flex-direction: column;
+}
+
+.empty-cart {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Typography */ 
