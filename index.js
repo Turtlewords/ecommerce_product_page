@@ -223,7 +223,7 @@ function showCart() {
     } else {
         cart.style.display = "block";
         cartContent.innerHTML = `
-        <div class="non-empty-cart">
+        <div class="non-empty-cart" aria-live="polite">
             <div class="cart-items">
                 <img class="cart-product-img" src="${thumbArr[thumbIndex]}" alt="thumbnail of shoes">
                 <div class="cart-info">
@@ -241,7 +241,7 @@ function showCart() {
 
 function updateCart() {
     cartContent.innerHTML = `
-    <div class="non-empty-cart">
+    <div class="non-empty-cart" aria-live="polite">
         <div class="cart-items">
             <img class="cart-product-img" src="${thumbArr[thumbIndex]}" alt="thumbnail of shoes">
             <div class="cart-info">
