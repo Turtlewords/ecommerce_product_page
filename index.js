@@ -29,7 +29,6 @@ const lightThumbnails = document.querySelectorAll(".light-thumbnail");
 
 // Variables
 
-
 let showPrice = 125;
 let index = 0;
 let quantity = 0;
@@ -228,8 +227,8 @@ function showCart() {
             <div class="cart-items">
                 <img class="cart-product-img" src="${thumbArr[thumbIndex]}" alt="thumbnail of shoes">
                 <div class="cart-info">
-                    <span>Fall Limited Edition Sneakers</span>
-                    <span>$125 x ${cartQuantity} <span id="total-cost">$${cartQuantity * 125}</span>
+                    <span class="gray">Fall Limited Edition Sneakers</span>
+                    <span id="cost-span" class="gray">$125 x ${cartQuantity} <span id="total-cost">$${cartQuantity * 125}</span>
                 </div>
                 <img id="delete-btn" src="images/icon-delete.svg" alt="delete icon">
             </div>
@@ -246,8 +245,8 @@ function updateCart() {
         <div class="cart-items">
             <img class="cart-product-img" src="${thumbArr[thumbIndex]}" alt="thumbnail of shoes">
             <div class="cart-info">
-                <span>Fall Limited Edition Sneakers</span>
-                <span>$125 x ${cartQuantity} <span id="total-cost">$${cartQuantity * 125}</span>
+                <span class="gray">Fall Limited Edition Sneakers</span>
+                <span id="cost-span" class="gray">$125 x ${cartQuantity} <span id="total-cost">$${cartQuantity * 125}</span>
             </div>
             <img id="delete-btn" src="images/icon-delete.svg" alt="delete icon">
         </div>

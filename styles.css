@@ -44,6 +44,7 @@ body {
     font-family: "KumbhSans", "Helvetica", sans-serif;
     padding-bottom: 4rem;
     position: relative;
+    
 }
 
 header {
@@ -78,6 +79,7 @@ header {
     display: flex;
     gap: 2rem;
     flex-direction: column;
+    transition: 0.3s ease-in;
     
 
 }
@@ -105,6 +107,10 @@ header {
     text-decoration: none;
     color: black;
     font-weight: 500;
+}
+
+#sidenav a:active {
+    color: var(--orange-500);
 }
 
 #desktop-hero {
@@ -167,7 +173,7 @@ header {
     align-items: center;
     gap: 1rem;
     font-family: inherit;
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 600;
     
 }
@@ -197,18 +203,51 @@ header {
 }
 
 #cart-content {
-    height: 10rem;
+    height: 10.5rem;
 }
 
 .cart-items {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     
+}
+
+.non-empty-cart {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .cart-info {
     display: flex;
     flex-direction: column;
+}
+
+#cost-span {
+    position: relative;
+}
+
+#total-cost {
+    position: absolute;
+    bottom: -3px;
+    right: 53%;
+}
+
+#delete-btn:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+#checkout-btn {
+    padding: 1rem;
+    background-color: var(--orange-500);
+    border-radius: 12px;
+    border: none;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 .empty-cart {
@@ -217,50 +256,6 @@ header {
     justify-content: center;
     align-items: center;
 }
-
-.non-empty-cart {
-
-}
-
-/* Typography */ 
-
-#current-price {
-    font-size: 1.5rem;
-    font-weight: 700;
-}
-
-#discount {
-    background-color: #000000;
-    color: white;
-    padding: .5rem;
-    border-radius: 8px;
-}
-
-#past-price {
-    text-decoration: line-through;
-    display: flex;
-    align-items: center;
-    color: var(--grey-500);
-    font-size: 1.125rem;
-    font-weight: 600;
-}
-
-
-
-#quantity {
-    margin: 0;
-    font-weight: 600;
-}
-
-#thumbnail-box, #lightbox-thumbnail-box {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-
-}
-
-
-
 
 #lightbox {
     position: fixed;
@@ -291,6 +286,61 @@ header {
     gap: 2rem;
 }
 
+#thumbnail-box, #lightbox-thumbnail-box {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+
+}
+
+/* Typography */ 
+#sub-head {
+    color: var(--grey-500);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+#content-text {
+    color: var(--grey-500);
+    line-height: 1.6;
+}
+
+#current-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+#discount {
+    background-color: #000000;
+    color: white;
+    padding: .5rem;
+    border-radius: 8px;
+}
+
+#past-price {
+    text-decoration: line-through;
+    display: flex;
+    align-items: center;
+    color: var(--grey-500);
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+
+#quantity {
+    margin: 0;
+    font-weight: 600;
+}
+
+#total-cost {
+    font-weight: 700;
+    color: black;
+}
+
+.gray {
+    color: var(--grey-500);
+}
 
 /* Images */
 
@@ -310,11 +360,17 @@ img {
 
 #avatar {
     width: 40px;
+    border-radius: 100px;
 }
 
 #avatar:hover {
     cursor: pointer;
     opacity: 0.7;
+}
+
+#avatar:active {
+    border: 2px solid var(--orange-500);
+    
 }
 
 #cart-container {
@@ -394,7 +450,7 @@ img {
 
 
 .cart-product-img {
-    width: 75px;
+    width: 60px;
     border-radius: 8px;
 }
 
@@ -488,7 +544,10 @@ img {
 
 @media (min-width: 1250px) {
 
-
+    header {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 
     main {
         display: grid;
