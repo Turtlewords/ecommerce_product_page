@@ -218,6 +218,10 @@ header {
     align-items: center;
 }
 
+.non-empty-cart {
+
+}
+
 /* Typography */ 
 
 #current-price {
@@ -255,6 +259,15 @@ header {
 
 }
 
+
+#lightbox {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(211, 211, 211, 0.7);
+    z-index: 4;
+}
 
 
 /* Images */
@@ -356,6 +369,11 @@ img {
 .cart-product-img {
     width: 75px;
     border-radius: 8px;
+}
+
+#close-lightbox:hover {
+    cursor: pointer;
+    opacity: 0.7;
 }
 
 

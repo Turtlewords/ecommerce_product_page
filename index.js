@@ -15,6 +15,8 @@ const cartBtn = document.querySelector("#cart-container");
 const cart = document.querySelector("#cart");
 let cartContent = document.querySelector("#cart-content");
 const deleteBtn = document.querySelector("#delete-btn");
+const lightBox = document.querySelector("#lightbox");
+const closeLightBoxBtn = document.querySelector("#close-lightbox");
 
 const thumbnails = document.querySelectorAll(".thumbnail");
 
@@ -81,6 +83,10 @@ document.body.addEventListener("click", (e) => {
     if (e.target.id == "delete-btn") {
         deleteCartItems();
     }
+})
+
+closeLightBoxBtn.addEventListener("click", () => {
+    lightBox.style.display = "none";
 })
 
 // Functions
