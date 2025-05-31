@@ -17,6 +17,7 @@ let cartContent = document.querySelector("#cart-content");
 const deleteBtn = document.querySelector("#delete-btn");
 const lightBox = document.querySelector("#lightbox");
 const closeLightBoxBtn = document.querySelector("#close-lightbox");
+const lightBoxImg = document.querySelector("#lightbox-img");
 
 const thumbnails = document.querySelectorAll(".thumbnail");
 
@@ -69,8 +70,12 @@ thumbnails.forEach((thumb) => {
 })
 
 
-nextImgBtn.addEventListener("click", loadNextImage)
-prevImgBtn.addEventListener("click", loadPreviousImage)
+nextImgBtn.addEventListener("click", () => {
+    loadNextImage(pictureFrame)
+});
+prevImgBtn.addEventListener("click", () => {
+    loadPreviousImage(pictureFrame)
+});
 
 
 addToCartBtn.addEventListener("click", () => {
@@ -85,9 +90,16 @@ document.body.addEventListener("click", (e) => {
     }
 })
 
+
+desktopImg.addEventListener("click", () => {
+    lightBox.style.display = "block";
+})
+
 closeLightBoxBtn.addEventListener("click", () => {
     lightBox.style.display = "none";
 })
+
+
 
 // Functions
 
@@ -96,7 +108,7 @@ function loadFirstPicture() {
     <img class="product" src=${pictureArr[index]} alt="sneakers">`
 }
 
-function loadNextImage() {
+function loadNextImage(el) {
     
     if (index < pictureArr.length - 1) {
         index++;
@@ -105,18 +117,18 @@ function loadNextImage() {
     }
     
     
-    pictureFrame.innerHTML = `
+    el.innerHTML = `
     <img class="product" src=${pictureArr[index]} alt="sneakers">`
 }
 
-function loadPreviousImage() {
+function loadPreviousImage(el) {
     if (index > 0) {
         index--;
     } else {
         index = pictureArr.length - 1;
     }
 
-    pictureFrame.innerHTML = `
+    el.innerHTML = `
     <img class="product" src=${pictureArr[index]} alt="sneakers">`
 }
 
@@ -146,9 +158,6 @@ function subtractQuantity() {
     }
 }
 
-
-// Finish addToCart function
-
 function addToCart() {
     if (quantity == 0) {
         return;
@@ -164,7 +173,6 @@ function addToCart() {
         updateCart()
     }
 }
-
 
 
 function showCart() {
@@ -217,6 +225,10 @@ function deleteCartItems() {
     <div class="empty-cart">
         <p>Your cart is empty</p>
     </div>`
+}
+
+function showLightBox() {
+
 }
 
 
