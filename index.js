@@ -57,6 +57,13 @@ closeMenu.addEventListener("click", () => {
 })
 
 
+window.addEventListener("mouseup", (e) => {
+    if (!(e.target.closest("#sideNav"))) {
+        sideNav.classList.remove("nav-active");
+    }
+})
+
+
 cartMinus.addEventListener("click", subtractQuantity);
 cartPlus.addEventListener("click", addQuantity);
 
