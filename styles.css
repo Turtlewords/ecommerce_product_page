@@ -52,18 +52,62 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
+    
+}
+
+#header-left-outer {
+    display: flex; 
+    gap: 2rem;
+    height: 100%;
+    align-items: center;
 }
 
 #header-left {
     display: flex;
-    align-items: flex-end;
     gap: 1rem;
+    height: fit-content
+    
 }
 
 #header-right {
     display: flex;
     align-items: center;
     gap: 1rem;
+}
+
+#header-nav {
+    height: 100%;
+    display: flex;
+    align-self: flex-end;
+
+}
+
+#header-nav ul {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+}
+
+#header-nav li {
+    height: 100%;
+    
+}
+
+#header-nav a {
+    text-decoration: none;
+    color: var(--grey-500);
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#header-nav a:hover {
+    text-decoration: none;
+    color: black;
+    border-bottom: 2px solid var(--orange-500);
 }
 
 #sidenav {
@@ -496,8 +540,21 @@ img {
         font-size: 3rem;
     }
 
+    #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+
+    main {
+        width: 90%;
+    }
+
     header {
-        padding: 3rem;
+        width: 90%;
+        margin: 0 auto;
+        border-bottom: 1px solid var(--grey-300);
     }
 
     #avatar {
@@ -544,7 +601,12 @@ img {
 
     header {
         max-width: 1200px;
-        margin: 0 auto;
+        padding: 0;
+        height: 100px;
+    }
+
+    #header-left {
+        gap: 3rem;
     }
 
     main {
@@ -555,12 +617,7 @@ img {
         max-height: 800px;
     }
 
-    #container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        
-    }
+    
 
     #hero {
         display: none;
