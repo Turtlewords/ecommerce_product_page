@@ -51,7 +51,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
+    padding: 1.25rem;
     
 }
 
@@ -67,6 +67,11 @@ header {
     gap: 1rem;
     height: fit-content
     
+}
+
+#hero, #picture-frame {
+    height: 375px;
+    overflow: hidden;
 }
 
 #header-right {
@@ -160,7 +165,7 @@ header {
 }
 
 #content {
-    padding: 1.25rem 1.25rem 0 1.25rem;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -336,6 +341,11 @@ header {
 }
 
 /* Typography */ 
+
+h1 {
+    font-size: 2.2rem;
+}
+
 #sub-head {
     color: var(--grey-500);
     text-transform: uppercase;
@@ -349,15 +359,16 @@ header {
 }
 
 #current-price {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     font-weight: 700;
 }
 
 #discount {
     background-color: #000000;
     color: white;
-    padding: .5rem;
+    padding: .5rem .75rem;
     border-radius: 8px;
+    font-weight: 600;
 }
 
 #past-price {
@@ -365,8 +376,8 @@ header {
     display: flex;
     align-items: center;
     color: var(--grey-500);
-    font-size: 1.125rem;
-    font-weight: 600;
+    font-size: 1.2rem;
+    font-weight: 700;
 }
 
 
@@ -401,7 +412,7 @@ img {
 }
 
 #avatar {
-    width: 40px;
+    width: 35px;
     border-radius: 100px;
 }
 
@@ -420,6 +431,7 @@ img {
     width: 30px;
     height: 30px;
     background-repeat: no-repeat;
+    background-position: center;
     position: relative;
 }
 
@@ -537,13 +549,14 @@ img {
 @media (min-width: 768px) {
 
     h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 
     #container {
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 2rem;
         
     }
 
@@ -585,8 +598,13 @@ img {
         bottom: -200px;
     }
 
+    #current-box {
+        gap: 1.75rem;
+    }
+
     #price {
         flex-direction: column;
+        gap: 1rem;
     }
 
     #btn-box {
@@ -625,6 +643,7 @@ img {
 
     #hero {
         display: none;
+
     }
 
     #open-menu {
