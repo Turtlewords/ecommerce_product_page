@@ -239,7 +239,7 @@ function showCart() {
                 </div>
                 <img id="delete-btn" src="images/icon-delete.svg" alt="delete icon">
             </div>
-            <button id="checkout-btn">Checkout</button>
+            <button id="checkout-btn" type="button">Checkout</button>
         </div>`
     }
     }
@@ -257,7 +257,7 @@ function updateCart() {
             </div>
             <img id="delete-btn" src="images/icon-delete.svg" alt="delete icon">
         </div>
-        <button id="checkout-btn">Checkout</button>
+        <button id="checkout-btn" type="button">Checkout</button>
     </div>`
 }
 
