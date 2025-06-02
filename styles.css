@@ -52,6 +52,8 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1.25rem;
+    position: relative;
+
     
 }
 
@@ -233,8 +235,8 @@ header {
 #cart {
     display: none;
     position: absolute;
-    top: 5rem;
-    right: 1rem;
+    bottom: -17rem;
+    right: 1.5rem;
     width: 90%;
     max-width: 360px;
     background-color: var(--white);
@@ -571,6 +573,7 @@ img {
 
     main {
         width: 90%;
+        margin-top: 2rem;
     }
 
     header {
@@ -592,12 +595,11 @@ img {
     padding: 3rem 0 0 5rem;
 }
 
-    main {
-        margin-top: 2rem;
-    }
 
     #cart {
         top: 5.5rem;
+        right: 0;
+        
     }
 
     #picture-frame {
@@ -670,7 +672,7 @@ img {
     }
 
     #cart {
-        right: 8rem;
+        right: -5rem;
     }
 
     #desktop-hero {
